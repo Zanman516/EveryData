@@ -1,72 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>AI Chat</title>
-  <style>
-    .chat-container {
-      height: 300px;
-      overflow-y: scroll;
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
-    .message {
-      margin-bottom: 10px;
-    }
-    .user-message {
-      color: blue;
-    }
-    .ai-message {
-      color: green;
-    }
-  </style>
-</head>
-<body>
-  <div class="chat-container" id="chatContainer"></div>
-  <input type="text" id="userInput" placeholder="Enter your message..." />
-  <button id="sendButton">Send</button>
-
-  <script src="https://cdn.jsdelivr.net/npm/openai-js-sdk@1.0.0"></script>
-  <script>
-    const gpt3 = new OpenAIAPI('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');
-
-    // Function to add a message to the chat container
-    function addMessage(message, isUser) {
-      const chatContainer = document.getElementById('chatContainer');
-      const messageDiv = document.createElement('div');
-      messageDiv.className = 'message ' + (isUser ? 'user-message' : 'ai-message');
-      messageDiv.innerText = message;
-      chatContainer.appendChild(messageDiv);
-    }
-
-    // Function to generate AI response
-    function generateAIResponse(userInput) {
-      gpt3.complete(
-        'text-davinci-003',
-        { prompt: userInput, max_tokens: 50 }
-      ).then((response) => {
-        const aiResponse = response.choices[0].text.trim();
-        addMessage(aiResponse, false);
-      }).catch((error) => {
-        console.error(error);
-      });
-    }
-
-    // Event listener for the send button
-    document.getElementById('sendButton').addEventListener('click', function() {
-      const userInput = document.getElementById('userInput').value;
-      if (userInput) {
-        addMessage(userInput, true);
-        generateAIResponse(userInput);
-        document.getElementById('userInput').value = '';
-      }
-    });
-
-    // Event listener for the Enter key
-    document.getElementById('userInput').addEventListener('keydown', function(event) {
-      if (event.key === 'Enter') {
-        document.getElementById('sendButton').click();
-      }
-    });
-  </script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EveryData</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <h1>EveryData/index.html</h1>  
+      <p1>Sections</p1>
+       <a href="Database/Admin.html">AdminData</a>
+       <a href="url">Policys</a>
+       <a href="url">Cisco Umbrella</a>
+     
+    </main>
+	<script src="index.js"></script>
+  </body>
 </html>
